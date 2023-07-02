@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>JS Loops</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <h2>JavaScript Loops</h2>
+        <script>
+            function Pattern(param){
+                for( var i=1;i<=param;i++){
+                    var text="";
+                    for(var j=1;j<=i;j++){
+                        text +=j+" ";
+                    }
+                    document.write(text);
+                    document.write('<br>');
+                }                
+            }
+            Pattern(5);
+        </script>
+    </body>
+</html>
