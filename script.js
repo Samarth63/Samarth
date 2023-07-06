@@ -1,9 +1,24 @@
-document.body.style.backgroundColor="lightyellow";
-document.getElementById("heading").innerHTML= "JavaScript";
-document.getElementById('heading').style.fontSize= '35px';
-document.getElementById("p1").innerHTML= "JavaScript is apowerful, flexible, and fast programming language.";
-document.getElementById("p2").innerHTML= "JavaScript powers thedynamic behavior on websites."
-document.getElementById("p3").innerHTML= "JavaScript remains atthe core of web development."
-document.getElementById('p1').style.color='red';
-document.getElementById('p2').style.color= 'blue';
-document.getElementById('p3').style.color='green';
+var form=document.querySelector('form');
+form.addEventListener('submit',function(e)
+{
+    var feet=document.querySelector('#feet');
+    var results=document.querySelector('#results');
+    e.preventDefault();
+    feet= parseInt(feet.value);
+    if(isNaN(feet))
+    {
+        results.textContent="Please enter a valid number:";
+
+    }
+    else if(feet<=0)
+    {
+        results.textContent="Please enter a feet value>0";
+    }
+    else{
+        var converted_value=feet*30.48;
+        results.textContent=converted_value + "cm";
+        document.querySelector(`#feet`).value='';
+        document.querySelector('#inches').value='';
+    }
+}
+)
