@@ -1,30 +1,23 @@
-var quoteSource=[{
-    quote:"Start by doing what's necessary; thendo what's possible; andsuddenly you are doing the impossible.", name:"Francis of Assisi"
-},
-{
-    quote:"Believe you can and you're halfway there.",
-    name:"Theodore Roosevelt"
-      
-},
-{
-    quote:"It does not matter how slowly you go aslong as you do not stop.",
-    name:"Confucius"
-},
-{
-  quote:"Our greatest weakness lies in giving up.The most certain way tosucceed is always to try just one more time.",
-  name:"Thomas A. Edison"  
-},
-{
-    quote:"The will to win, the desire to succeed,the urge to reach your fullpotential... these are the keys that will unlock the door to personalexcellence.",
-    name:"Confucius"
+var dice;
+var dices= ['&#9856;','&#9857;','&#9858;','&#9859;','&#9860;','&#9861;'];
+var stopped=true;
+var t;
+function change(){
+    var random=Math.floor(Math.random()*6);
+    dice.innerHTML=dices[random];
 }
-];
-const quoteButton=document.getElementById('quoteButton');
-function myfunction(){
-var sourceLength=quoteSource.length;
-var randomNumber=Math.floor(Math.random()*sourceLength);
-var newQuoteText=quoteSource[randomNumber].quote;
-var newQuoteGenius=quoteSource[randomNumber].name;
-var quoteContainer=document.getElementById('quoteContainer');
-quoteContainer.innerHTML=`<p>${newQuoteText}</p><p id="quoteGenius">-${newQuoteGenius}</p>`;
-};
+function stopstart(){
+    if (stopped){
+        stopped=false;
+        t= setInterval(change,100);
+    }
+    else{
+        clearInterval(t);
+        stopped=true;
+    }
+
+}
+window.onload= function(){
+    dice=document.getElementById("dice");
+    stopstart();
+}
